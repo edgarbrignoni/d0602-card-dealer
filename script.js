@@ -16,4 +16,6 @@ function init(){
     //document.write("<div>" + getCardSuit() + getCardNumber() + "</div>");
 }
 
+    document.write('<div class="card"></div>');
+
 init();

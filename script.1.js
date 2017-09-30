@@ -1,25 +1,19 @@
-// JavaScript File
-console.log('Card Dealer');
+var cardSuit = ["heart", "club", "spade", "diamond"];
+var cardNumber = ["A","2","3","4","5","6","7","8","9","10","J","Q","K"];
 
-var pickSuit = Math.floor((Math.random() * 4));
-var pickColor = (pickSuit < 2) ? 'black':'red';
-var pickNumber = Math.floor((Math.random() * 13) + 1);
-
-function getNumber(pickNumber) {
-  switch(pickNumber) {
-    case 1: return 'A'; break;
-    case 11: return 'J'; break;
-    case 12: return 'Q'; break;
-    case 13: return 'K'; break;
-    default: return pickNumber;
-  }
+function getCardSuit(){
+    return cardSuit[Math.floor(Math.random()*cardSuit.length)];
 }
 
-var cardNumber = getNumber(pickNumber);
-var cardSuit = ['&#9824', '&#9827', '&#9829', '&#9830'];
+function getCardNumber(){
+    return cardNumber[Math.floor(Math.random()*cardNumber.length)];
+}
 
-console.log('Card Number: ' + cardNumber);
-console.log('Card  Suit: ' + pickSuit);
+function init(){
+    var ourBeautifulCard = document.querySelector(".card");
+    ourBeautifulCard.classList.add(getCardSuit());
+    ourBeautifulCard.innerHTML = getCardNumber();
+    //document.write("<div>" + getCardSuit() + getCardNumber() + "</div>");
+}
 
-document.write('<div style="font-size: 100px; color: ' + pickColor + '">' + cardSuit[pickSuit] + '</div>');
-document.write('<div style="font-size: 100px; color: ' + pickColor + '">' + cardNumber + '</div>');
+init();
